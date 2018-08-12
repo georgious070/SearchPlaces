@@ -1,5 +1,6 @@
 package com.place.search.searchplaces.internal.di
 
+import com.place.search.data.di.NetworkModule
 import com.place.search.searchplaces.SearchPlacesApplication
 import dagger.Component
 import dagger.android.AndroidInjectionModule
@@ -13,7 +14,8 @@ import javax.inject.Singleton
             AndroidInjectionModule::class,
             AndroidSupportInjectionModule::class,
             ActivityModule::class,
-            ViewModelModule::class
+            ViewModelModule::class,
+            NetworkModule::class
         ]
 )
 interface AppComponent : AndroidInjector<SearchPlacesApplication> {
