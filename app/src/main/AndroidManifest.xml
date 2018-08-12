@@ -9,7 +9,7 @@
         android:name=".SearchPlacesApplication"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.activity.PlacesActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

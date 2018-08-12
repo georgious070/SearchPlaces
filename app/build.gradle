@@ -41,6 +41,7 @@ dependencies {
     kapt "com.google.dagger:dagger-android-processor:$versions.dagger"
 
     // ViewModel
+    implementation "android.arch.lifecycle:extensions:$versions.components"
     implementation "android.arch.lifecycle:viewmodel:$versions.components"
     kapt "android.arch.lifecycle:compiler:$versions.components"
 
