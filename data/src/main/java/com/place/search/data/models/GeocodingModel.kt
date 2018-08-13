@@ -2,7 +2,7 @@ package com.place.search.data.models
 
 import com.google.gson.annotations.SerializedName
 
-data class Data(@SerializedName("results") val results: List<Result>)
+data class GeocodingResponse(@SerializedName("results") val results: List<Result>)
 
 data class Result(@SerializedName("geometry") val geometry: Geometry)
 

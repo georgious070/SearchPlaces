@@ -14,14 +14,11 @@
         <activity android:name=".ui.activity.PlacesActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <!--<action android:name="android.intent.action.SEARCH" />-->
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <!--<meta-data android:name="android.app.searchable"-->
-            <!--android:resource="@xml/searchable"/>-->
         </activity>
-        <!--<meta-data-->
-        <!--android:name="com.google.android.geo.API_KEY"-->
-        <!--android:value="AIzaSyA9eWrLZ3b-yqNtZfEbTW-FpPYxlOpplxo" />-->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCXrLavCYiR8qJhi6YmHhu2nv3f73DqadI" />
     </application>
 </manifest>

@@ -7,6 +7,7 @@ ext {
             rxAndroid   : '2.0.1',
             rxJava      : '2.1.4',
             dagger      : '2.14.1',
-            retrofit    : '2.4.0'
+            retrofit    : '2.4.0',
+            glide       : '4.2.0'
     ]
 }

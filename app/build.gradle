@@ -52,4 +52,11 @@ dependencies {
 
     // data-binding
     kapt "com.android.databinding:compiler:$versions.gradlePlugin"
+
+    // GooglePlaces
+    implementation 'com.google.android.gms:play-services-places:15.0.1'
+
+    //Glide
+    implementation "com.github.bumptech.glide:glide:$versions.glide"
+    kapt "com.github.bumptech.glide:compiler:$versions.glide"
 }
