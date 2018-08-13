@@ -15,7 +15,9 @@ import javax.inject.Singleton
             AndroidSupportInjectionModule::class,
             ActivityModule::class,
             ViewModelModule::class,
-            NetworkModule::class
+            NetworkModule::class,
+            SchedulersModule::class,
+            ImplementationsModule::class
         ]
 )
 interface AppComponent : AndroidInjector<SearchPlacesApplication> {

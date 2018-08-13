@@ -6,16 +6,30 @@ import com.place.search.data.VenuesApi
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Named
+import javax.inject.Singleton
 
 @Module
 class NetworkModule {
 
     @Provides
+    fun provideOkHttpClient(logger: HttpLoggingInterceptor): OkHttpClient =
+            OkHttpClient.Builder()
+                    .addInterceptor(logger)
+                    .build()
+
+    @Provides
+    fun provideLoggingInterceptor() =
+            HttpLoggingInterceptor()
+                    .apply { level = HttpLoggingInterceptor.Level.BODY }
+
+    @Provides
     @Named(Const.NAME_GEOCODING)
+    @Singleton
     fun provideRetrofitBuilderGeocoding(client: OkHttpClient): Retrofit =
             Retrofit.Builder()
                     .client(client)
@@ -30,9 +44,9 @@ class NetworkModule {
 
     @Provides
     @Named(Const.NAME_VENUES)
-    fun provideRetrofitBuilderVenues(client: OkHttpClient): Retrofit =
+    @Singleton
+    fun provideRetrofitBuilderVenues(): Retrofit =
             Retrofit.Builder()
-                    .client(client)
                     .addConverterFactory(GsonConverterFactory.create())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .baseUrl(Const.BASE_URL_VANUES)

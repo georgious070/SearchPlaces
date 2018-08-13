@@ -2,20 +2,26 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.place.search.searchplaces">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:name=".SearchPlacesApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:name=".SearchPlacesApplication"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.activity.PlacesActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
+                <!--<action android:name="android.intent.action.SEARCH" />-->
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            <!--<meta-data android:name="android.app.searchable"-->
+            <!--android:resource="@xml/searchable"/>-->
         </activity>
+        <!--<meta-data-->
+        <!--android:name="com.google.android.geo.API_KEY"-->
+        <!--android:value="AIzaSyA9eWrLZ3b-yqNtZfEbTW-FpPYxlOpplxo" />-->
     </application>
-
 </manifest>
