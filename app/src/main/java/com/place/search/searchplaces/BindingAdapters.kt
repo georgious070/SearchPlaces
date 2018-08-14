@@ -1,6 +1,8 @@
 package com.place.search.searchplaces
 
 import android.databinding.BindingAdapter
+import android.databinding.BindingConversion
+import android.view.View
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 
@@ -13,3 +15,8 @@ fun ImageView.setImageUri(url: String?) {
                 .into(this)
     }
 }
+
+@BindingConversion
+fun booleanToVisibility(
+        visible: Boolean
+) = View.VISIBLE.takeIf { visible } ?: View.GONE

@@ -8,15 +8,16 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.place.search.core.models.Venues
 import com.place.search.searchplaces.BR
 import com.place.search.searchplaces.R
+import com.place.search.searchplaces.ui.models.VenuesParcelable
 
-class PlacesAdapter : RecyclerView.Adapter<PlacesAdapter.PlaceViewHolder>() {
+class PlacesAdapter(val clickVenue: (Int, List<VenuesParcelable>) -> Unit) : RecyclerView.Adapter<PlacesAdapter.PlaceViewHolder>() {
 
-    private var places = listOf<Venues>()
+    private var places = listOf<VenuesParcelable>()
 
-    fun updateAdapter(venues: List<Venues>) {
+
+    fun updateAdapter(venues: List<VenuesParcelable>) {
         val diffResult = DiffUtil.calculateDiff(BaseDiffUtilCallback(venues, places))
         places = venues
         diffResult.dispatchUpdatesTo(this)
@@ -28,7 +29,6 @@ class PlacesAdapter : RecyclerView.Adapter<PlacesAdapter.PlaceViewHolder>() {
                 R.layout.item_venue,
                 parent,
                 false)
-
         return PlaceViewHolder(binding.root).also { binding.setVariable(BR.viewModel, it) }
     }
 
@@ -38,12 +38,16 @@ class PlacesAdapter : RecyclerView.Adapter<PlacesAdapter.PlaceViewHolder>() {
             holder.item.set(places[position])
 
     inner class PlaceViewHolder(v: View) : RecyclerView.ViewHolder(v) {
-        val item = ObservableField<Venues>()
+        val item = ObservableField<VenuesParcelable>()
+
+        fun handleVenueClick() {
+            clickVenue(adapterPosition, places)
+        }
     }
 }
 
 class BaseDiffUtilCallback(
-        private val newList: List<Venues>, private val oldList: List<Venues>
+        private val newList: List<VenuesParcelable>, private val oldList: List<VenuesParcelable>
 ) : DiffUtil.Callback() {
 
     override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean =

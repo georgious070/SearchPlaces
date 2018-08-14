@@ -25,6 +25,11 @@ android {
     }
 }
 
+androidExtensions {
+    experimental = true
+}
+
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
@@ -46,6 +51,7 @@ dependencies {
     implementation "android.arch.lifecycle:extensions:$versions.components"
     implementation "android.arch.lifecycle:viewmodel:$versions.components"
     kapt "android.arch.lifecycle:compiler:$versions.components"
+    implementation "android.arch.lifecycle:livedata:$versions.components"
 
     // RxAndroid
     implementation "io.reactivex.rxjava2:rxandroid:2.0.2"

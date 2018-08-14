@@ -9,7 +9,6 @@ data class Venue(
         @SerializedName("icon") val icon: String,
         @SerializedName("id") val id: String,
         @SerializedName("name") val name: String,
-        @SerializedName("rating") val rating: Int,
         @SerializedName("opening_hours") val opening_hours: OpeningHours
 )
 
