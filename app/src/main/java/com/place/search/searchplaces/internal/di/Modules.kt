@@ -6,8 +6,8 @@ import android.arch.lifecycle.ViewModelProvider
 import android.content.Context
 import com.place.search.core.NetworkRepo
 import com.place.search.data.repository.NetworkRepositoryImplementation
-import com.place.search.searchplaces.Const
 import com.place.search.searchplaces.ViewModelFactory
+import com.place.search.searchplaces.ui.activity.MapActivity
 import com.place.search.searchplaces.ui.activity.PlacesActivity
 import com.place.search.searchplaces.ui.base.BaseViewModel
 import com.place.search.searchplaces.ui.viewmodel.PlacesViewModel
@@ -24,6 +24,7 @@ import io.reactivex.schedulers.Schedulers
 interface ActivityModule {
 
     @ContributesAndroidInjector fun placesActivity(): PlacesActivity
+    @ContributesAndroidInjector fun mapActivity(): MapActivity
 }
 
 @Module
@@ -54,6 +55,7 @@ class SchedulersModule {
 
 @Module
 interface ImplementationsModule {
+
     @Binds fun context(application: Application): Context
     @Binds fun networkRepo(networkRepo: NetworkRepositoryImplementation): NetworkRepo
 }

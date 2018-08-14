@@ -45,8 +45,9 @@ class NetworkModule {
     @Provides
     @Named(Const.NAME_VENUES)
     @Singleton
-    fun provideRetrofitBuilderVenues(): Retrofit =
+    fun provideRetrofitBuilderVenues(client: OkHttpClient): Retrofit =
             Retrofit.Builder()
+                    .client(client)
                     .addConverterFactory(GsonConverterFactory.create())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .baseUrl(Const.BASE_URL_VANUES)
