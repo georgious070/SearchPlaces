@@ -23,6 +23,5 @@ interface VenuesApi {
             @Query("location") locationCoordinates: String,
             @Query("radius") radius: Int = 500,
             @Query("sensor") sensor: Boolean = false,
-            @Query("key") key: String = API_KEY
-    ): Single<PlacesResponse>
+            @Query("key") key: String = API_KEY): Single<PlacesResponse>
 }

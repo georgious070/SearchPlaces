@@ -16,7 +16,6 @@ class PlacesAdapter(val clickVenue: (Int, List<VenuesParcelable>) -> Unit) : Rec
 
     private var places = listOf<VenuesParcelable>()
 
-
     fun updateAdapter(venues: List<VenuesParcelable>) {
         val diffResult = DiffUtil.calculateDiff(BaseDiffUtilCallback(venues, places))
         places = venues
