@@ -1,7 +1,6 @@
 package com.place.search.searchplaces.internal.di
 
 import android.arch.lifecycle.ViewModel
-import com.place.search.searchplaces.Const
 import com.place.search.searchplaces.ui.base.BaseViewModel
 import dagger.MapKey
 import kotlin.reflect.KClass
