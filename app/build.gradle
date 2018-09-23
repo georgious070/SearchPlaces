@@ -1,0 +1,68 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildTools
+    defaultConfig {
+        applicationId "com.place.search.searchplaces"
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode versions.versionCode
+        versionName versions.versionName
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+}
+
+androidExtensions {
+    experimental = true
+}
+
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(':core')
+    implementation project(':data')
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
+    implementation "com.android.support:appcompat-v7:$versions.support"
+    implementation "com.android.support:recyclerview-v7:$versions.support"
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+
+    // Koin DI
+    implementation "org.koin:koin-android:$versions.koin"
+    implementation "org.koin:koin-android-viewmodel:$versions.koin"
+
+    // ViewModel
+    implementation "android.arch.lifecycle:extensions:$versions.components"
+    implementation "android.arch.lifecycle:viewmodel:$versions.components"
+    kapt "android.arch.lifecycle:compiler:$versions.components"
+    implementation "android.arch.lifecycle:livedata:$versions.components"
+
+    // RxAndroid
+    implementation "io.reactivex.rxjava2:rxandroid:2.0.2"
+
+    // data-binding
+    kapt "com.android.databinding:compiler:$versions.gradlePlugin"
+
+    // GooglePlaces
+    implementation 'com.google.android.gms:play-services-places:15.0.1'
+
+    //Glide
+    implementation "com.github.bumptech.glide:glide:$versions.glide"
+    kapt "com.github.bumptech.glide:compiler:$versions.glide"
+}

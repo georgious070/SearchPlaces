@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SearchPlaces</string>
+    <string name="search">Search</string>
+    <string name="empty_message">Api key has expired by this time</string>
+</resources>

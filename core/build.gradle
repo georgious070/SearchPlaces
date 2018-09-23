@@ -1,0 +1,10 @@
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    api "io.reactivex.rxjava2:rxjava:$versions.rxJava"
+    api "javax.inject:javax.inject:1"
+}
+
