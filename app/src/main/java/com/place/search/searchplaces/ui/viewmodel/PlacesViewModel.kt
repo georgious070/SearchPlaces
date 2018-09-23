@@ -8,9 +8,8 @@ import com.place.search.searchplaces.ui.base.BaseViewModel
 import com.place.search.searchplaces.ui.models.PlaceCoordinatesParcelable
 import com.place.search.searchplaces.ui.models.VenuesParcelable
 import io.reactivex.Scheduler
-import javax.inject.Inject
 
-class PlacesViewModel @Inject constructor(
+class PlacesViewModel constructor(
         private val schedulers: Map<SchedulerType, @JvmSuppressWildcards Scheduler>,
         private val getCoordinates: GetCoordinatesUseCase
 ) : BaseViewModel() {
