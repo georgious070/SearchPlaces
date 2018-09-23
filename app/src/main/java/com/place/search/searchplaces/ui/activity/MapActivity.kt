@@ -3,6 +3,7 @@ package com.place.search.searchplaces.ui.activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -11,9 +12,8 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.place.search.searchplaces.R
 import com.place.search.searchplaces.ui.models.VenuesParcelable
-import dagger.android.support.DaggerAppCompatActivity
 
-class MapActivity : DaggerAppCompatActivity(), OnMapReadyCallback {
+class MapActivity : AppCompatActivity(), OnMapReadyCallback {
 
     companion object {
         const val ARG_CENTRAL_VENUE_POSITION = "CENTRAL_VENUE_POSITION"

@@ -8,13 +8,13 @@ import com.place.search.searchplaces.ui.base.BaseActivity
 import com.place.search.searchplaces.ui.models.VenuesParcelable
 import com.place.search.searchplaces.ui.viewmodel.PlacesViewModel
 import kotlinx.android.synthetic.main.activity_places.*
+import org.koin.android.viewmodel.ext.android.viewModel
 
 class PlacesActivity : BaseActivity<ActivityPlacesBinding, PlacesViewModel>() {
 
     override val layoutId = R.layout.activity_places
-    override val viewModelClass = PlacesViewModel::class.java
-
-    var adapter = PlacesAdapter { position, venues -> onVenueClick(position, venues) }
+    override val viewModel: PlacesViewModel by viewModel()
+    private var adapter = PlacesAdapter { position, venues -> onVenueClick(position, venues) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

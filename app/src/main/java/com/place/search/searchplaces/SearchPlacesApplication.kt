@@ -1,11 +1,17 @@
 package com.place.search.searchplaces
 
-import com.place.search.searchplaces.internal.di.DaggerAppComponent
-import dagger.android.AndroidInjector
-import dagger.android.DaggerApplication
+import android.app.Application
+import com.place.search.data.di.apiModule
+import com.place.search.searchplaces.internal.di.implModule
+import com.place.search.searchplaces.internal.di.schedulersModule
+import com.place.search.searchplaces.internal.di.useCaseModule
+import com.place.search.searchplaces.internal.di.viewModelModule
+import org.koin.android.ext.android.startKoin
 
-class SearchPlacesApplication : DaggerApplication() {
+class SearchPlacesApplication : Application() {
 
-    override fun applicationInjector(): AndroidInjector<out DaggerApplication> =
-            DaggerAppComponent.builder().create(this)
+    override fun onCreate() {
+        super.onCreate()
+        startKoin(this, listOf(viewModelModule, schedulersModule, implModule, apiModule, useCaseModule))
+    }
 }
