@@ -6,11 +6,10 @@ import com.place.search.core.models.Venues
 import com.place.search.data.GeocodingApi
 import com.place.search.data.VenuesApi
 import io.reactivex.Single
-import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class NetworkRepositoryImplementation @Inject constructor(
+class NetworkRepositoryImplementation constructor(
         private val geoApi: GeocodingApi,
         private val venuesApi: VenuesApi
 ) : NetworkRepo {
