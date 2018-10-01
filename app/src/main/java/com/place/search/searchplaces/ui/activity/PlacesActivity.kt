@@ -7,7 +7,6 @@ import com.place.search.searchplaces.databinding.ActivityPlacesBinding
 import com.place.search.searchplaces.ui.base.BaseActivity
 import com.place.search.searchplaces.ui.models.VenuesParcelable
 import com.place.search.searchplaces.ui.viewmodel.PlacesViewModel
-import kotlinx.android.synthetic.main.activity_places.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class PlacesActivity : BaseActivity<ActivityPlacesBinding, PlacesViewModel>() {
@@ -18,7 +17,7 @@ class PlacesActivity : BaseActivity<ActivityPlacesBinding, PlacesViewModel>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        recyclerView.adapter = adapter
+        binding.recyclerView.adapter = adapter
         viewModel.liveData.observe(this,
                 Observer { adapter.updateAdapter(it ?: listOf()) })
     }
